@@ -6,6 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Static Template</title>
   <style>
+    picture{
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
     img{
         box-shadow: 0 0 15px #999;
         border-radius: 50%;
@@ -15,12 +21,26 @@
         opacity: 0.3;
     }
   </style>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"crossorigin></script>
   </head>
   <body>
     <h1>Woman in Tech</h1>  
     <div id="app"></div>
     <script>
         const $app = document.getElementById("app")
+        const h = React.createElement
+        
+        const Avatar = params => {
+            const src = `https://randomuser.me/api/portraits/women/${
+                params.id
+            }.jpg`
+
+            return h('img',{src})
+        }
+        
+        
+        /*
         const Avatar = params => {
             const src = `https://randomuser.me/api/portraits/women/${
                 params.id
@@ -30,7 +50,7 @@
             ${params.name}
             </picture>
         `
-        }
+        } */
   
         $app.innerHTML += Avatar({ id: 5, name: "Naara"})
         $app.innerHTML += Avatar({ id: 6, name: "Keren"})
