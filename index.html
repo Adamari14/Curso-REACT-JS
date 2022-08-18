@@ -15,13 +15,22 @@
   </head>
   <body>
     <h1>Woman in Tech</h1>  
-    <picture>
-        <img src="https://randomuser.me/api/portraits/women/76.jpg" />
-        Naara
-    </picture>
-    <picture>
-        <img src="https://randomuser.me/api/portraits/women/68.jpg" />
-        Keren
-    </picture>
+    <div id="app"></div>
+    <script>
+        const $app = document.getElementById("app");
+        const Avatar = params => {
+            const src = `https://randomuser.me/api/portraits/women/${
+                params.id
+            }.jpg`;
+            return `<picture>
+            <img src="${src}" />
+            ${params.name}
+            </picture>
+        `;
+        };
+  
+        $app.innerHTML += Avatar({ id: 5, name; "Naara"});
+        $app.innerHTML += Avatar({ id: 6, name; "Keren"});
+    </script>
   </body>
 </html>
