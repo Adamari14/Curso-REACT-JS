@@ -39,7 +39,8 @@
             return h('img',{src})
         }
         
-        
+        ReactDOM.render(h(Avatar, { id: 1}), $app)
+
         /*
         const Avatar = params => {
             const src = `https://randomuser.me/api/portraits/women/${
@@ -50,10 +51,11 @@
             ${params.name}
             </picture>
         `
-        } */
+        } 
   
         $app.innerHTML += Avatar({ id: 5, name: "Naara"})
         $app.innerHTML += Avatar({ id: 6, name: "Keren"})
+        */
     
     $app.querySelectorAll("img").forEach(img =>{
         img.addEventListener("click", () =>{
