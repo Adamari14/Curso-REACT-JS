@@ -11,26 +11,35 @@
         border-radius: 50%;
         width: 100px;
     }
+    img.disabled{
+        opacity: 0.3;
+    }
   </style>
   </head>
   <body>
     <h1>Woman in Tech</h1>  
     <div id="app"></div>
     <script>
-        const $app = document.getElementById("app");
+        const $app = document.getElementById("app")
         const Avatar = params => {
             const src = `https://randomuser.me/api/portraits/women/${
                 params.id
-            }.jpg`;
+            }.jpg`
             return `<picture>
             <img src="${src}" />
             ${params.name}
             </picture>
-        `;
-        };
+        `
+        }
   
-        $app.innerHTML += Avatar({ id: 5, name; "Naara"});
-        $app.innerHTML += Avatar({ id: 6, name; "Keren"});
+        $app.innerHTML += Avatar({ id: 5, name: "Naara"})
+        $app.innerHTML += Avatar({ id: 6, name: "Keren"})
+    
+    $app.querySelectorAll("img").forEach(img =>{
+        img.addEventListener("click", () =>{
+            img.classList.toggle("disabled")
+        })
+    })
     </script>
   </body>
 </html>
