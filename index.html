@@ -70,7 +70,7 @@
 
             return (
               <picture className={pictureClassName}>
-               {id ? (
+                {id ? (
                 <img
                 onClick={() => {
                   setEnabled(!enabled);
@@ -78,13 +78,13 @@
                 className={imgClassName}
                 src={src}
               />
-            ) : (
-              <i>Sin imagen</i>
-            )}
-            <strong>{enabled ? name : "Desactivada"}</strong>
-          </picture>
-        );
-        }
+                ) : (
+                <i>Sin imagen</i>
+                )}
+              <strong>{enabled ? name : "Desactivada"}</strong>
+            </picture>
+          );
+        };
         
         ReactDOM.render(
           <div>
