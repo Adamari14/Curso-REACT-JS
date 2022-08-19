@@ -33,22 +33,26 @@
         const useState = React.useState
         
         const Avatar = props => {
-          const state = useState(true)
+          const [enabled, setEnabled] = useState(true)
 
-          const src = `https://randomuser.me/api/portraits/women/${
-            params.id
-          }.jpg`
+          const src = `https://randomuser.me/api/portraits/women/${props.id}.jpg`;
+          const className = enabled ? "" : "disabled";
 
-            return(
-            <picture>
-              <img 
-                onClick={event => {
-                  event.target.classList.toggle("disabled")
-                }} 
-              src={src} />
-              <Strong>{params.name}</Strong>
-            </picture>)
-
+            return (
+          <picture >
+           
+              <img
+                onClick={() => {
+                  setEnabled(!enabled);
+                }}
+                className={className}
+                src={src}
+              />
+            
+  
+            <strong>{enabled ? name : "Desactivada"}</strong>
+          </picture>
+        );
         }
         
         ReactDOM.render(
