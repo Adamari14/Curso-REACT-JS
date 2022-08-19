@@ -11,7 +11,16 @@
         flex-direction: column;
         text-align: center;
         width: 100%;
+        
     }
+    picture.is-small {
+        width: 50px;
+      }
+
+    picture.is-large {
+      width: 200px;
+    }
+
     img{
         box-shadow: 0 0 15px #999;
         border-radius: 50%;
@@ -20,6 +29,7 @@
     img.disabled{
         opacity: 0.3;
     }
+    
   </style>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"crossorigin></script>
@@ -36,7 +46,14 @@
           const [enabled, setEnabled] = useState(true)
 
           const src = `https://randomuser.me/api/portraits/women/${props.id}.jpg`;
-          const className = enabled ? "" : "disabled";
+          
+          let pictureClassName = "";
+        if (size === "small") {
+          pictureClassName = "is-small";
+        } else if (size === "large") {
+          pictureClassName = "is-large";
+        }
+          const imgClassName = enabled ? "" : "disabled";
 
             return (
           <picture >
@@ -44,7 +61,7 @@
               onClick={() => {
                 setEnabled(!enabled);
               }}
-              className={className}
+              className={imgClassName}
               src={src} />
             
   
@@ -55,8 +72,9 @@
         
         ReactDOM.render(
           <div>
-            <Avatar id={15} name= "Ana" />
-            <Avatar id={30} name= "JSXLady"/>
+            <Avatar id={15} name= "Ana" size= "small"/>
+            <Avatar id={14} name= "JSXLady"/>
+            <Avatar id={13} name= "Rodriguez" size= "large"/>
           </div>
           ,$app)
           
