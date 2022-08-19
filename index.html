@@ -29,6 +29,18 @@
     img.disabled{
         opacity: 0.3;
     }
+
+    i {
+        align-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        min-height: 50px;
+        display: block;
+        width: 100%;
+      }
     
   </style>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
@@ -53,40 +65,37 @@
           } else if (size === "large") {
             pictureClassName = "is-large";
           }
-          
+
           const imgClassName = enabled ? "" : "disabled";
 
             return (
-          <picture >
-            <img
-              onClick={() => {
-                setEnabled(!enabled);
-              }}
-              className={imgClassName}
-              src={src} />
-            
-  
-            <strong>{name}</strong>
+              <picture className={pictureClassName}>
+               {id ? (
+                <img
+                onClick={() => {
+                  setEnabled(!enabled);
+                }}
+                className={imgClassName}
+                src={src}
+              />
+            ) : (
+              <i>Sin imagen</i>
+            )}
+            <strong>{enabled ? name : "Desactivada"}</strong>
           </picture>
         );
         }
         
         ReactDOM.render(
           <div>
-            <Avatar id={15} name= "Ana" size= "small"/>
-            <Avatar id={14} name= "JSXLady"/>
-            <Avatar id={13} name= "Rodriguez" size= "large"/>
+          <h1>Ejemplo de los avatars</h1>
+          <Avatar id="2" size="small" name="JSXlady" />
+          <Avatar id="3" name="Layla" />
+          <Avatar id="1" size="large" name="Emma" />
+          <hr />
           </div>
           ,$app)
           
-
-    /*
-    $app.querySelectorAll("img").forEach(img =>{
-        img.addEventListener("click", () =>{
-            img.classList.toggle("disabled")
-        })
-    })
-    */
     </script>
   </body>
 </html>
