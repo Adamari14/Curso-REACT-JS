@@ -40,17 +40,15 @@
 
             return (
           <picture >
-           
-              <img
-                onClick={() => {
-                  setEnabled(!enabled);
-                }}
-                className={className}
-                src={src}
-              />
+            <img
+              onClick={() => {
+                setEnabled(!enabled);
+              }}
+              className={className}
+              src={src} />
             
   
-            <strong>{enabled ? name : "Desactivada"}</strong>
+            <strong>{props.name}</strong>
           </picture>
         );
         }
