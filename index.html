@@ -28,45 +28,38 @@
   <body>
     <h1>Woman in Tech</h1>  
     <div id="app"></div>
-    <script = type="text/babel">
+    <script type="text/babel">
         const $app = document.getElementById("app")
         const h = React.createElement
         
         const Avatar = params => {
-            const src = `https://randomuser.me/api/portraits/women/${
-                params.id
-            }.jpg`
+          const src = `https://randomuser.me/api/portraits/women/${
+            params.id
+          }.jpg`
 
-           // return h('img',{src})
-            return<img src={src} />
+            return(
+            <picture>
+              <img src={src} />
+              <Strong>{params.name}</Strong>
+            </picture>)
+
         }
         
         ReactDOM.render(
-          h('div', null, [h(Avatar, { id: 1}), h(Avatar, { id: 1})]),
-          $app)
+          <div>
+            <Avatar id={15} name= "Ana" />
+            <Avatar id={30} name= "JSXLady"/>
+          </div>
+          ,$app)
           
 
-        /*
-        const Avatar = params => {
-            const src = `https://randomuser.me/api/portraits/women/${
-                params.id
-            }.jpg`
-            return `<picture>
-            <img src="${src}" />
-            ${params.name}
-            </picture>
-        `
-        } 
-  
-        $app.innerHTML += Avatar({ id: 5, name: "Naara"})
-        $app.innerHTML += Avatar({ id: 6, name: "Keren"})
-        */
-    
+    /*
     $app.querySelectorAll("img").forEach(img =>{
         img.addEventListener("click", () =>{
             img.classList.toggle("disabled")
         })
     })
+    */
     </script>
   </body>
 </html>
