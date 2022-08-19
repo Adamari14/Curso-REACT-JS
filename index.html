@@ -23,11 +23,12 @@
   </style>
     <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> 
   </head>
   <body>
     <h1>Woman in Tech</h1>  
     <div id="app"></div>
-    <script>
+    <script = type="text/babel">
         const $app = document.getElementById("app")
         const h = React.createElement
         
@@ -36,7 +37,8 @@
                 params.id
             }.jpg`
 
-            return h('img',{src})
+           // return h('img',{src})
+            return<img src={src} />
         }
         
         ReactDOM.render(
