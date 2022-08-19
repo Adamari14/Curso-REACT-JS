@@ -30,18 +30,21 @@
     <div id="app"></div>
     <script type="text/babel">
         const $app = document.getElementById("app")
-        const h = React.createElement
+        const useState = React.useState
         
-        const Avatar = params => {
+        const Avatar = props => {
+          const state = useState(true)
+
           const src = `https://randomuser.me/api/portraits/women/${
             params.id
           }.jpg`
 
             return(
             <picture>
-              <img onClick={(event) => {
-                event.target.classList.toggle("disabled")
-              }} 
+              <img 
+                onClick={event => {
+                  event.target.classList.toggle("disabled")
+                }} 
               src={src} />
               <Strong>{params.name}</Strong>
             </picture>)
