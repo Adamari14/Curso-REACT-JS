@@ -39,7 +39,10 @@
             return h('img',{src})
         }
         
-        ReactDOM.render(h(Avatar, { id: 1}), $app)
+        ReactDOM.render(
+          h('div', null, [h(Avatar, { id: 1}), h(Avatar, { id: 1})]),
+          $app)
+          
 
         /*
         const Avatar = params => {
